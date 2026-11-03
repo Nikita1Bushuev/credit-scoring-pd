@@ -1,0 +1,74 @@
+schema: '2.0'
+stages:
+  prepare:
+    cmd: python -m src.data.make_dataset data/raw/UCI_Credit_Card.csv data/interim
+    deps:
+    - path: data/raw/UCI_Credit_Card.csv
+      hash: md5
+      md5: 940b416bb13a9b24bb5c9e1589284005
+      size: 2862995
+    - path: src/data/make_dataset.py
+      hash: md5
+      md5: 86debd0d5481b068aa451874954951b3
+      size: 2397
+    outs:
+    - path: data/interim/test.csv
+      hash: md5
+      md5: 6d5a69b56a895deadd250ae09ba0cf00
+      size: 702052
+    - path: data/interim/train.csv
+      hash: md5
+      md5: c0036d3c9985277df90a37acea789c75
+      size: 2806437
+  features:
+    cmd: python -m src.features.build_features data/interim data/processed
+    deps:
+    - path: data/interim/test.csv
+      hash: md5
+      md5: 6d5a69b56a895deadd250ae09ba0cf00
+      size: 702052
+    - path: data/interim/train.csv
+      hash: md5
+      md5: c0036d3c9985277df90a37acea789c75
+      size: 2806437
+    - path: src/features/build_features.py
+      hash: md5
+      md5: 92b47c71aa8d6a36a707d9228deeaeda
+      size: 2882
+    outs:
+    - path: data/processed/test.csv
+      hash: md5
+      md5: b6b6fa250de0482b0e1738d113fb490b
+      size: 1238349
+    - path: data/processed/train.csv
+      hash: md5
+      md5: 70e2801ba3844e7ba6b8a0c4dbb8f99d
+      size: 4960122
+  train:
+    cmd: python -m src.models.train --model-type gbc --threshold 0.3
+    deps:
+    - path: data/processed/test.csv
+      hash: md5
+      md5: b6b6fa250de0482b0e1738d113fb490b
+      size: 1238349
+    - path: data/processed/train.csv
+      hash: md5
+      md5: 70e2801ba3844e7ba6b8a0c4dbb8f99d
+      size: 4960122
+    - path: src/models/pipeline.py
+      hash: md5
+      md5: 97d4680cebe0080119b13a1823c28973
+      size: 2217
+    - path: src/models/train.py
+      hash: md5
+      md5: 173ae4189df32fce9461fe8e4b7b47e4
+      size: 5387
+    outs:
+    - path: models/model_gbc_th0.3.pkl
+      hash: md5
+      md5: aa1a022b164d795f6375892c7c1f1533
+      size: 622796
+    - path: reports/metrics_gbc_th0.3.json
+      hash: md5
+      md5: 11f00cbca0d71a7bf362e6bf2b48c64e
+      size: 135

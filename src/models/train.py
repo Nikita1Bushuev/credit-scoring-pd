@@ -1,4 +1,5 @@
 import argparse
+import json
 from pathlib import Path
 
 import joblib
@@ -113,6 +114,9 @@ def train_and_evaluate(
 
     model_path = models / f"model_{suffix}.pkl"
     joblib.dump(best_model, model_path)
+    metrics_path = reports / f"metrics_{suffix}.json"
+    with open(metrics_path, "w", encoding="utf-8") as f:
+        json.dump(metrics, f, indent=2)
 
     mlflow.set_tracking_uri(MLFLOW_TRACKING_URI)
     mlflow.set_experiment(MLFLOW_EXPERIMENT_NAME)

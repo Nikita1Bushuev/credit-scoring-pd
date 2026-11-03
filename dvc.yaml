@@ -1,0 +1,32 @@
+stages:
+  prepare:
+    cmd: python -m src.data.make_dataset data/raw/UCI_Credit_Card.csv data/interim
+    deps:
+      - src/data/make_dataset.py
+      - data/raw/UCI_Credit_Card.csv
+    outs:
+      - data/interim/train.csv
+      - data/interim/test.csv
+
+  features:
+    cmd: python -m src.features.build_features data/interim data/processed
+    deps:
+      - src/features/build_features.py
+      - data/interim/train.csv
+      - data/interim/test.csv
+    outs:
+      - data/processed/train.csv
+      - data/processed/test.csv
+
+  train:
+    cmd: python -m src.models.train --model-type gbc --threshold 0.3
+    deps:
+      - src/models/train.py
+      - src/models/pipeline.py
+      - data/processed/train.csv
+      - data/processed/test.csv
+    outs:
+      - models/model_gbc_th0.3.pkl
+    metrics:
+      - reports/metrics_gbc_th0.3.json:
+          cache: false
