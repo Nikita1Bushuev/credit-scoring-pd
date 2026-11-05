@@ -1,0 +1,36 @@
+{
+  "LIMIT_BAL": {
+    "type": "continuous",
+    "ks_pvalue": 0.0,
+    "psi": 1.6417,
+    "drift_detected": true
+  },
+  "AGE": {
+    "type": "continuous",
+    "ks_pvalue": 0.0229,
+    "psi": 0.0029,
+    "drift_detected": true
+  },
+  "total_bill": {
+    "type": "continuous",
+    "ks_pvalue": 0.9384,
+    "psi": 0.0009,
+    "drift_detected": false
+  },
+  "pay_ratio": {
+    "type": "continuous",
+    "ks_pvalue": 0.3767,
+    "psi": 0.0002,
+    "drift_detected": false
+  },
+  "EDUCATION": {
+    "type": "categorical",
+    "chi2_pvalue": 0.3152,
+    "drift_detected": false
+  },
+  "MARRIAGE": {
+    "type": "categorical",
+    "chi2_pvalue": 0.5934,
+    "drift_detected": false
+  }
+}
