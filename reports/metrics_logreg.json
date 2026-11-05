@@ -1,0 +1,11 @@
+{
+  "model_type": "logreg",
+  "best_params": {
+    "classifier__solver": "liblinear",
+    "classifier__C": 0.1
+  },
+  "roc_auc": 0.7604328349086795,
+  "precision": 0.4644776119402985,
+  "recall": 0.586284853051997,
+  "f1": 0.5183211192538307
+}

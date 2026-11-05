@@ -25,6 +25,7 @@ known_first_party = ["src"]
 skip = [".venv", "build", "dist", "mlruns"]
 
 [tool.pytest.ini_options]
+pythonpath = ["."]
 testpaths = ["tests"]
 python_files = ["test_*.py"]
 addopts = "-ra --strict-markers --cov=src --cov-report=term-missing --cov-report=html"
