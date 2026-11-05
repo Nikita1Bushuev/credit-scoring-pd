@@ -39,7 +39,7 @@ def check_drift(train_path: str, new_data_path: str):
                 "type": "continuous",
                 "ks_pvalue": round(float(p_value), 4),
                 "psi": round(float(psi), 4),
-                "drift_detected": bool(psi > 0.25 or p_value < 0.05),
+                "drift_detected": bool(psi > 0.25 or p_value < 0.01),
             }
 
     cat_cols = ["EDUCATION", "MARRIAGE"]

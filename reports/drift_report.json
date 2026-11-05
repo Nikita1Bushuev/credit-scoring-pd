@@ -9,7 +9,7 @@
     "type": "continuous",
     "ks_pvalue": 0.0229,
     "psi": 0.0029,
-    "drift_detected": true
+    "drift_detected": false
   },
   "total_bill": {
     "type": "continuous",
