@@ -1,9 +1,9 @@
 {
   "LIMIT_BAL": {
     "type": "continuous",
-    "ks_pvalue": 0.0,
-    "psi": 1.6417,
-    "drift_detected": true
+    "ks_pvalue": 0.757,
+    "psi": 0.0026,
+    "drift_detected": false
   },
   "AGE": {
     "type": "continuous",
