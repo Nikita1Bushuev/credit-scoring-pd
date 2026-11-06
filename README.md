@@ -52,8 +52,8 @@ python scripts/demo.py
 
 ## Результаты экспериментов (MLflow)
 
-![alt text](<Screenshot 2026-11-03 040853.png>)
-
+![alt text](<img width="1825" height="470" alt="Screenshot 2026-11-03 040853" src="https://github.com/user-attachments/assets/49180054-8bae-4055-a5c8-7c15a6950938" />
+)
 **Вывод**: Модель Gradient Boosting с порогом 0.3 выбрана как оптимальная (баланс Precision/Recall для банка).
 
 ## Мониторинг дрифта
