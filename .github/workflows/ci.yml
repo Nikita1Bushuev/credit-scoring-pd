@@ -40,9 +40,5 @@ jobs:
 
       - name: Generate sample data and validate with Great Expectations
         run: |
-          python -c "
-
-      - name: Generate sample data and validate with Great Expectations
-        run: |
           python scripts/generate_sample_data.py
           python -m src.data.validation sample_data.csv
